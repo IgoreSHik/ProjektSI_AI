@@ -30,6 +30,7 @@ namespace ProjektSI_AI
         static public void Algorytm (int count)
         {
             global_count = count;
+            global_current = -1;
             for (int i = 0; i<=count; i++)
             {
                 if ((i % 2) == 1)
