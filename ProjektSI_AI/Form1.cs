@@ -30,7 +30,20 @@ namespace ProjektSI_AI
         private void button1_Click(object sender, EventArgs e)
         {
             Program.Add(textBox1.Text, (int)numericUpDown1.Value*60+(int)numericUpDown2.Value, (int)numericUpDown4.Value * 60 + (int)numericUpDown3.Value);
-            listBox1.Items.Add(textBox1.Text+' '+ ((int)numericUpDown1.Value * 60 + (int)numericUpDown2.Value).ToString() + '-' + ((int)numericUpDown4.Value * 60 + (int)numericUpDown3.Value).ToString());
+            listBox1.Items.Add(textBox1.Text +' '+ ((int)numericUpDown1.Value).ToString() + ':' + ((int)numericUpDown2.Value).ToString() + '-' + ((int)numericUpDown4.Value).ToString() + ':' + ((int)numericUpDown3.Value).ToString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Add("ALGORYTM STARTET");
+            Program.Algorytm(listBox1.Items.Count);
+            listBox2.Items.Add("ALGORYTM ENDED");
+            string ans = Program.Give();
+            while (ans != "END")
+            {
+                if (ans != "SKIP") listBox2.Items.Add(ans);
+                ans = Program.Give();
+            }
         }
     }
 }
